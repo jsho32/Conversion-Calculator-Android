@@ -1,17 +1,40 @@
 package com.jshoresdevelopment.conversioncalculator;
 
+import android.graphics.Color;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends FragmentActivity {
+    private TextView distance;
+    private TextView volume;
+    private TextView weight;
+    private List<TextView> navButtons;
+    private Fragment currentFragment;
+    private MainFragment mainFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mainFragment = new MainFragment();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.content, mainFragment)
+                .commitAllowingStateLoss();
+        currentFragment = mainFragment;
+
+        initializeNavBar();
     }
 
     @Override
@@ -34,5 +57,49 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /** Resets nav bar buttons to original colors. */
+    private void resetNavButtons() {
+        for (TextView view : navButtons) {
+            view.setBackgroundColor(Color.WHITE);
+            view.setTextColor(Color.parseColor("#ff007223"));
+        }
+    }
+
+    /** Initializes nav bar buttons. */
+    private void initializeNavBar() {
+        navButtons = new ArrayList<>();
+
+        distance = (TextView) findViewById(R.id.distance_button);
+        setNavButtonsOnClickListener(distance);
+        navButtons.add(distance);
+
+        volume = (TextView) findViewById(R.id.volume_button);
+        setNavButtonsOnClickListener(volume);
+        navButtons.add(volume);
+
+        weight = (TextView) findViewById(R.id.weight_button);
+        setNavButtonsOnClickListener(weight);
+        navButtons.add(weight);
+    }
+
+    /** Standardized nav bar on click listener. */
+    private void setNavButtonsOnClickListener(final TextView view) {
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetNavButtons();
+                view.setBackgroundColor(Color.parseColor("#ff007223"));
+                view.setTextColor(Color.WHITE);
+            }
+        });
+    }
+
+    /** Switch UI to the given fragment. */
+    void switchToFragment(Fragment newFrag) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.content, newFrag)
+                .commitAllowingStateLoss();
+        currentFragment = newFrag;
     }
 }
