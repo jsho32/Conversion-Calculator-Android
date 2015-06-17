@@ -81,6 +81,7 @@ public class ConversionFragment extends Fragment {
         return layout;
     }
 
+    /** Sets layout items resource strings etc. */
     public void setLayoutResources() {
         switch(conversionType) {
             case "Distance":
@@ -106,6 +107,7 @@ public class ConversionFragment extends Fragment {
         }
     }
 
+    /** Returns array adapter used for spinners */
     private ArrayAdapter<String> getArrayAdapter(String[] array) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(mActivity,
                 android.R.layout.simple_spinner_item, array);
@@ -114,6 +116,7 @@ public class ConversionFragment extends Fragment {
         return adapter;
     }
 
+    /** Returns on item selected listener for spinner items */
     private AdapterView.OnItemSelectedListener getSpinnerOnItemSelectedListener() {
         return new AdapterView.OnItemSelectedListener() {
             @Override
@@ -128,11 +131,13 @@ public class ConversionFragment extends Fragment {
         };
     }
 
+    /** Sets the unit texts to unit abbreviations */
     private void setUnitsText() {
         fromUnit.setText(unitAbbreviations.get(convertFrom.getSelectedItem().toString()));
         toUnit.setText(unitAbbreviations.get(convertTo.getSelectedItem().toString()));
     }
 
+    /** Loads all the unit abbreviations into a map */
     private void setUnitAbbreviations() {
         unitAbbreviations = new HashMap<>();
         unitAbbreviations.put("Kilometers", "km");
