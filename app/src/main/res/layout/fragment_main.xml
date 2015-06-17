@@ -12,6 +12,7 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:textColor="#ff007223"
+        android:textSize="@dimen/conversion_text"
         android:text="@string/no_bar_selected"/>
 
 </RelativeLayout>
