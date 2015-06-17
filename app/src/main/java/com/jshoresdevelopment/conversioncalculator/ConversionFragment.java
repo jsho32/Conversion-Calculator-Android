@@ -30,6 +30,7 @@ public class ConversionFragment extends Fragment {
     private Spinner convertFrom;
     private Spinner convertTo;
     private EditText fromValue;
+    private Button convert;
     private String conversionType = null;
     private Map<String, String> unitAbbreviations;
 
@@ -68,17 +69,35 @@ public class ConversionFragment extends Fragment {
             }
         });
 
-        Button convert = (Button) layout.findViewById(R.id.calculate);
+        convert = (Button) layout.findViewById(R.id.calculate);
         convert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO calculate conversions
+                if (fromValue.getText().toString().equals("")) {
+                    fromValue.setText("0");
+                }
+                getConversions();
             }
         });
 
         setLayoutResources();
 
         return layout;
+    }
+
+    private void getConversions() {
+        switch(conversionType) {
+            case "Distance":
+                break;
+            case "Volume":
+                break;
+            case "Weight":
+                break;
+            case "Temp":
+                convertedValue.setText(TemperatureConversions.convert(convertFrom.getSelectedItem().toString(),
+                        fromValue.getText().toString(), convertTo.getSelectedItem().toString()));
+                break;
+        }
     }
 
     /** Sets layout items resource strings etc. */
@@ -122,6 +141,9 @@ public class ConversionFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 setUnitsText();
+                if (!fromValue.getText().toString().equals("")) {
+                    convert.performClick();
+                }
             }
 
             @Override
