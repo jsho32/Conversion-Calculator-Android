@@ -104,6 +104,10 @@ public class MainActivity extends FragmentActivity {
         TextView weight = (TextView) findViewById(R.id.weight_button);
         setNavButtonsOnClickListener(weight, "Weight");
         navButtons.add(weight);
+
+        TextView temp = (TextView) findViewById(R.id.temp_button);
+        setNavButtonsOnClickListener(temp, "Temp");
+        navButtons.add(temp);
     }
 
     /** Standardized nav bar on click listener. */
