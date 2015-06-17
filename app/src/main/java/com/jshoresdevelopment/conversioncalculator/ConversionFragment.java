@@ -6,9 +6,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,14 +24,20 @@ import lombok.Setter;
 public class ConversionFragment extends Fragment {
     private Activity mActivity;
     private TextView conversionHead;
+    private TextView convertedValue;
+    private TextView fromUnit;
+    private TextView toUnit;
     private Spinner convertFrom;
     private Spinner convertTo;
+    private EditText fromValue;
     private String conversionType = null;
+    private Map<String, String> unitAbbreviations;
 
     /** When fragment is created */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setUnitAbbreviations();
     }
 
     /** When fragment view is created */
@@ -35,8 +47,35 @@ public class ConversionFragment extends Fragment {
         mActivity = getActivity();
 
         conversionHead = (TextView) layout.findViewById(R.id.conversion_head);
+        fromValue = (EditText) layout.findViewById(R.id.value);
+        convertedValue = (TextView) layout.findViewById(R.id.converted_value);
+        convertedValue.setText("00.00");
+        fromUnit = (TextView) layout.findViewById(R.id.from_unit);
+        toUnit = (TextView) layout.findViewById(R.id.to_unit);
+
         convertFrom = (Spinner) layout.findViewById(R.id.convert_from_spinner);
+        convertFrom.setOnItemSelectedListener(getSpinnerOnItemSelectedListener());
+
         convertTo = (Spinner) layout.findViewById(R.id.convert_to_spinner);
+        convertTo.setOnItemSelectedListener(getSpinnerOnItemSelectedListener());
+
+        Button reset = (Button) layout.findViewById(R.id.reset);
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fromValue.setText("");
+                convertedValue.setText("00.00");
+            }
+        });
+
+        Button convert = (Button) layout.findViewById(R.id.calculate);
+        convert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO calculate conversions
+            }
+        });
+
         setLayoutResources();
 
         return layout;
@@ -70,4 +109,46 @@ public class ConversionFragment extends Fragment {
         return adapter;
     }
 
+    private AdapterView.OnItemSelectedListener getSpinnerOnItemSelectedListener() {
+        return new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                setUnitsText();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Nothing to be done
+            }
+        };
+    }
+
+    private void setUnitsText() {
+        fromUnit.setText(unitAbbreviations.get(convertFrom.getSelectedItem().toString()));
+        toUnit.setText(unitAbbreviations.get(convertTo.getSelectedItem().toString()));
+    }
+
+    private void setUnitAbbreviations() {
+        unitAbbreviations = new HashMap<>();
+        unitAbbreviations.put("Kilometers", "km");
+        unitAbbreviations.put("Meters", "m");
+        unitAbbreviations.put("Centimeters", "cm");
+        unitAbbreviations.put("Millimeters", "mm");
+        unitAbbreviations.put("Inches", "in");
+        unitAbbreviations.put("Feet", "ft");
+        unitAbbreviations.put("Yards", "yrd");
+        unitAbbreviations.put("Miles", "mi");
+        unitAbbreviations.put("Kiloliters", "kL");
+        unitAbbreviations.put("Liters", "L");
+        unitAbbreviations.put("Milliliters", "mL");
+        unitAbbreviations.put("Gallons", "gal");
+        unitAbbreviations.put("Fluid Ounces", "fl.oz");
+        unitAbbreviations.put("Cups", "Cup");
+        unitAbbreviations.put("Pints", "pnt");
+        unitAbbreviations.put("Kilograms", "kg");
+        unitAbbreviations.put("Grams", "g");
+        unitAbbreviations.put("Milligrams", "mg");
+        unitAbbreviations.put("Pounds", "lbs");
+        unitAbbreviations.put("Ounces", "oz");
+    }
 }
