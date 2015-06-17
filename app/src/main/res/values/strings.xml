@@ -3,8 +3,42 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="length">Distance</string>
+    <string name="distance">Distance</string>
+    <string name="distance_head">Distance Conversions:</string>
     <string name="volume">Volume</string>
+    <string name="volume_head">Volume Conversions:</string>
     <string name="weight">Weight</string>
+    <string name="weight_head">Weight Conversions:</string>
+    <string name="convert_from">Convert From:</string>
+    <string name="convert_to">Convert To:</string>
     <string name="no_bar_selected">Choose a conversion type.\nFrom the bar above.</string>
+
+    <string-array name="distance_array">
+        <item>Kilometers</item>
+        <item>Meters</item>
+        <item>Centimeters</item>
+        <item>Millimeters</item>
+        <item>Inches</item>
+        <item>Feet</item>
+        <item>Yards</item>
+        <item>Miles</item>
+    </string-array>
+
+    <string-array name="volume_array">
+        <item>Kiloliters</item>
+        <item>Liters</item>
+        <item>Milliliters</item>
+        <item>gallons</item>
+        <item>Fluid Ounces</item>
+        <item>Cups</item>
+        <item>Pints</item>
+    </string-array>
+
+    <string-array name="weight_array">
+        <item>Kilograms</item>
+        <item>Grams</item>
+        <item>Milligrams</item>
+        <item>Pounds</item>
+        <item>Ounces</item>
+    </string-array>
 </resources>
