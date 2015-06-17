@@ -98,6 +98,11 @@ public class ConversionFragment extends Fragment {
                 convertFrom.setAdapter(getArrayAdapter(getResources().getStringArray(R.array.weight_array)));
                 convertTo.setAdapter(getArrayAdapter(getResources().getStringArray(R.array.weight_array)));
                 break;
+            case "Temp":
+                conversionHead.setText(getResources().getString(R.string.temp_head));
+                convertFrom.setAdapter(getArrayAdapter(getResources().getStringArray(R.array.temp_array)));
+                convertTo.setAdapter(getArrayAdapter(getResources().getStringArray(R.array.temp_array)));
+                break;
         }
     }
 
@@ -150,5 +155,8 @@ public class ConversionFragment extends Fragment {
         unitAbbreviations.put("Milligrams", "mg");
         unitAbbreviations.put("Pounds", "lbs");
         unitAbbreviations.put("Ounces", "oz");
+        unitAbbreviations.put("Celsius", "\u00b0C");
+        unitAbbreviations.put("Fahrenheit", "\u00b0F");
+        unitAbbreviations.put("Kelvin", "\u00b0K");
     }
 }
