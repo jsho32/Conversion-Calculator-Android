@@ -14,4 +14,4 @@
         android:textColor="#ff007223"
         android:text="@string/no_bar_selected"/>
 
-    </RelativeLayout>
+</RelativeLayout>
