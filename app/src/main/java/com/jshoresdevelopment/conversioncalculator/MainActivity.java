@@ -46,7 +46,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (conversionFragment.getConversionHead() == null) {
+        if (conversionFragment.getConversionType() == null) {
             MainFragment mainFragment = new MainFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.content, mainFragment)
                     .commitAllowingStateLoss();
