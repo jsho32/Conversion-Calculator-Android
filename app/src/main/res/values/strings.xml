@@ -13,6 +13,8 @@
     <string name="volume_head">Volume Conversions:</string>
     <string name="weight">Weight</string>
     <string name="weight_head">Weight Conversions:</string>
+    <string name="temp">Temp</string>
+    <string name="temp_head">Temperature Conversions:</string>
     <string name="convert_from">Convert From:</string>
     <string name="convert_to">Convert To:</string>
     <string name="no_bar_selected">Choose a conversion type.\nFrom the bar above.</string>
@@ -44,5 +46,11 @@
         <item>Milligrams</item>
         <item>Pounds</item>
         <item>Ounces</item>
+    </string-array>
+
+    <string-array name="temp_array">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+        <item>Kelvin</item>
     </string-array>
 </resources>
