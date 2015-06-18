@@ -19,6 +19,7 @@
     <string name="convert_to">Convert To:</string>
     <string name="no_bar_selected">Choose a conversion type.\nFrom the bar above.</string>
     <string name="select_head">Select A Conversion:</string>
+    <string name="request">Request More Conversions</string>
 
     <string-array name="distance_array">
         <item>Kilometers</item>
