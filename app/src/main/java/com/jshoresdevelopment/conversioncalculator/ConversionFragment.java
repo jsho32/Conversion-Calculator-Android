@@ -85,11 +85,14 @@ public class ConversionFragment extends Fragment {
         return layout;
     }
 
+    /** Calls correct conversion type calculation */
     private void getConversions() {
         switch(conversionType) {
             case "Distance":
                 break;
             case "Volume":
+                convertedValue.setText(VolumeConversions.convert(convertFrom.getSelectedItem().toString(),
+                        fromValue.getText().toString(), convertTo.getSelectedItem().toString()));
                 break;
             case "Weight":
                 convertedValue.setText(WeightConversions.convert(convertFrom.getSelectedItem().toString(),
@@ -178,7 +181,7 @@ public class ConversionFragment extends Fragment {
         unitAbbreviations.put("Gallons", "gal");
         unitAbbreviations.put("Fluid Ounces", "fl.oz");
         unitAbbreviations.put("Cups", "Cup");
-        unitAbbreviations.put("Pints", "pnt");
+        unitAbbreviations.put("Pints", "pt");
         unitAbbreviations.put("Kilograms", "kg");
         unitAbbreviations.put("Grams", "g");
         unitAbbreviations.put("Milligrams", "mg");
