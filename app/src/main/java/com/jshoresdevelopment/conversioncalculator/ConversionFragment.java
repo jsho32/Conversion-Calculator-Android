@@ -89,6 +89,8 @@ public class ConversionFragment extends Fragment {
     private void getConversions() {
         switch(conversionType) {
             case "Distance":
+                convertedValue.setText(DistanceConversions.convert(convertFrom.getSelectedItem().toString(),
+                        fromValue.getText().toString(), convertTo.getSelectedItem().toString()));
                 break;
             case "Volume":
                 convertedValue.setText(VolumeConversions.convert(convertFrom.getSelectedItem().toString(),
