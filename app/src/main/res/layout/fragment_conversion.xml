@@ -2,9 +2,10 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:id="@+id/content"
-    android:background="#99575757">
+    android:background="#99575757"
+    android:paddingBottom="@dimen/activity_half_margin">
 
     <TextView
         android:layout_width="fill_parent"
@@ -58,7 +59,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="@dimen/activity_half_margin"
+            android:layout_marginLeft="@dimen/activity_half_margin"
+            android:layout_marginStart="@dimen/activity_half_margin"
+            android:layout_marginRight="@dimen/activity_half_margin"
+            android:layout_marginEnd="@dimen/activity_half_margin"
             android:theme="@style/Theme.ColoredSpinners"
             android:entries="@array/distance_array"
             android:prompt="@string/convert_from"/>
@@ -68,7 +72,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_margin="@dimen/activity_half_margin"
+            android:layout_marginLeft="@dimen/activity_half_margin"
+            android:layout_marginStart="@dimen/activity_half_margin"
+            android:layout_marginRight="@dimen/activity_half_margin"
+            android:layout_marginEnd="@dimen/activity_half_margin"
             android:theme="@style/Theme.ColoredSpinners"
             android:entries="@array/distance_array"
             android:prompt="@string/convert_to"/>
@@ -82,20 +89,11 @@
         android:layout_below="@+id/spinners_container"
         android:gravity="center">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/equals"
-            android:layout_centerInParent="true"
-            android:text="@string/equals"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/conversion_text"/>
-
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/equals"
-            android:layout_toStartOf="@+id/equals"
+            android:id="@+id/entry_container"
+            android:layout_centerHorizontal="true"
             android:gravity="center">
 
             <TextView
@@ -124,11 +122,11 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/equals"
-            android:layout_toEndOf="@+id/equals"
-            android:layout_centerVertical="true"
+            android:id="@+id/calculation_container"
+            android:layout_below="@+id/entry_container"
+            android:layout_centerHorizontal="true"
             android:gravity="center">
 
             <TextView
@@ -136,6 +134,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/converted_value"
                 android:layout_centerVertical="true"
+                android:layout_margin="@dimen/activity_half_margin"
                 android:text="12.001"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/conversion_text"/>
@@ -152,6 +151,18 @@
                 android:textSize="@dimen/conversion_text"/>
 
         </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/equals"
+            android:layout_below="@+id/entry_container"
+            android:layout_toStartOf="@+id/calculation_container"
+            android:layout_toLeftOf="@+id/calculation_container"
+            android:layout_margin="@dimen/activity_half_margin"
+            android:text="@string/equals"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/conversion_text"/>
 
     </RelativeLayout>
 
@@ -170,7 +181,11 @@
             android:layout_weight="1"
             android:textColor="#007223"
             android:text="@string/reset"
-            android:layout_margin="@dimen/activity_half_margin"/>
+            android:layout_marginLeft="@dimen/activity_half_margin"
+            android:layout_marginStart="@dimen/activity_half_margin"
+            android:layout_marginRight="@dimen/activity_half_margin"
+            android:layout_marginEnd="@dimen/activity_half_margin"
+            android:layout_marginBottom="@dimen/activity_half_margin"/>
 
         <Button
             android:layout_width="0dp"
@@ -179,7 +194,11 @@
             android:layout_weight="1"
             android:textColor="#007223"
             android:text="@string/convert"
-            android:layout_margin="@dimen/activity_half_margin"/>
+            android:layout_marginLeft="@dimen/activity_half_margin"
+            android:layout_marginStart="@dimen/activity_half_margin"
+            android:layout_marginRight="@dimen/activity_half_margin"
+            android:layout_marginEnd="@dimen/activity_half_margin"
+            android:layout_marginBottom="@dimen/activity_half_margin"/>
 
     </LinearLayout>
 
