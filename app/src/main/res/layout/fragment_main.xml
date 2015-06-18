@@ -7,9 +7,23 @@
     android:background="#99575757">
 
     <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/select_head"
+        android:layout_alignParentTop="true"
+        android:padding="@dimen/activity_half_margin"
+        android:background="#575757"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:text="@string/select_head"/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_below="@+id/select_head"
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/activity_vertical_margin"
+        android:layout_margin="@dimen/activity_vertical_margin"
         android:gravity="center"
         android:textColor="#ff007223"
         android:textSize="@dimen/conversion_text"
