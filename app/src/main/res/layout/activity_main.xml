@@ -82,6 +82,7 @@
                 android:gravity="center"
                 android:background="#ffffff"
                 android:textColor="#ff007223"
+                android:textSize="@dimen/nav_text"
                 android:text="@string/distance"/>
 
             <TextView
@@ -95,6 +96,7 @@
                 android:gravity="center"
                 android:background="#ffffff"
                 android:textColor="#ff007223"
+                android:textSize="@dimen/nav_text"
                 android:text="@string/volume"/>
 
             <TextView
@@ -108,6 +110,7 @@
                 android:gravity="center"
                 android:background="#ffffff"
                 android:textColor="#ff007223"
+                android:textSize="@dimen/nav_text"
                 android:text="@string/weight"/>
 
             <TextView
@@ -123,6 +126,7 @@
                 android:gravity="center"
                 android:background="#ffffff"
                 android:textColor="#ff007223"
+                android:textSize="@dimen/nav_text"
                 android:text="@string/temp"/>
 
         </LinearLayout>
