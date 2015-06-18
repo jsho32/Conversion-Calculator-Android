@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -79,6 +80,31 @@ public class MainActivity extends FragmentActivity {
                 startActivity(Intent.createChooser(intent, "Choose Sharing Medium"));
             }
         });
+
+        Button request = (Button) findViewById(R.id.request);
+        request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendEmail();
+            }
+        });
+    }
+
+    /** Formats and sends email based on users input to fields */
+    protected void sendEmail() {
+        String recipient = "jshoresdevelopment@gmail.com";
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", recipient, null));
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, recipient);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Conversion Calculator Request. ");
+
+        try {
+            // the user can choose the email client
+            startActivity(Intent.createChooser(emailIntent, "Choose an email client: "));
+
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(MainActivity.this, "No email client installed. ", Toast.LENGTH_LONG).show();
+        }
     }
 
     /** Resets nav bar buttons to original colors. */
