@@ -3,7 +3,7 @@
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@drawable/conversion_calc_bg"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -131,7 +131,7 @@
 
     <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/content"
         android:background="#99575757"
         android:layout_marginLeft="@dimen/activity_vertical_margin"
@@ -139,7 +139,6 @@
         android:layout_marginBottom="@dimen/activity_vertical_margin"
         android:layout_marginRight="@dimen/activity_vertical_margin"
         android:layout_marginEnd="@dimen/activity_vertical_margin"
-        android:layout_below="@+id/nav_container"
-        android:layout_above="@+id/developer_buttons"/>
+        android:layout_below="@+id/nav_container"/>
 
 </RelativeLayout>
