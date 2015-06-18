@@ -92,6 +92,8 @@ public class ConversionFragment extends Fragment {
             case "Volume":
                 break;
             case "Weight":
+                convertedValue.setText(WeightConversions.convert(convertFrom.getSelectedItem().toString(),
+                        fromValue.getText().toString(), convertTo.getSelectedItem().toString()));
                 break;
             case "Temp":
                 convertedValue.setText(TemperatureConversions.convert(convertFrom.getSelectedItem().toString(),
