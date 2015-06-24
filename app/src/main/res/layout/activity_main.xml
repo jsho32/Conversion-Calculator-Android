@@ -17,144 +17,157 @@
         android:text="@string/app_name"
         android:layout_alignParentTop="true"/>
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-9576690340592468/1487347633" />
-
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/request"
-        android:layout_above="@+id/adView"
-        android:textColor="#007223"
-        android:text="@string/request"
-        android:layout_marginLeft="@dimen/activity_half_margin"
-        android:layout_marginStart="@dimen/activity_half_margin"
-        android:layout_marginRight="@dimen/activity_half_margin"
-        android:layout_marginEnd="@dimen/activity_half_margin"
-        android:layout_marginBottom="@dimen/activity_half_margin"/>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/developer_buttons"
-        android:layout_above="@+id/request">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/more"
-            android:layout_weight="1"
-            android:textColor="#007223"
-            android:text="@string/more"
-            android:layout_margin="@dimen/activity_half_margin"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/share"
-            android:layout_weight="1"
-            android:textColor="#007223"
-            android:text="@string/share"
-            android:layout_margin="@dimen/activity_half_margin"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/nav_container"
-        android:background="#ff007223"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_marginStart="@dimen/activity_vertical_margin"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginRight="@dimen/activity_vertical_margin"
-        android:layout_marginEnd="@dimen/activity_vertical_margin"
-        android:paddingBottom="2dp"
+        android:layout_height="fill_parent"
         android:layout_below="@+id/banner">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="#575757">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="0dp"
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/distance_button"
-                android:layout_weight="1"
-                android:padding="@dimen/activity_half_margin"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:gravity="center"
-                android:background="#ffffff"
-                android:textColor="#ff007223"
-                android:textSize="@dimen/nav_text"
-                android:text="@string/distance"/>
+                android:layout_alignParentTop="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-9576690340592468/1487347633" />
 
-            <TextView
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/volume_button"
-                android:layout_weight="1"
-                android:padding="@dimen/activity_half_margin"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:gravity="center"
-                android:background="#ffffff"
-                android:textColor="#ff007223"
-                android:textSize="@dimen/nav_text"
-                android:text="@string/volume"/>
+                android:id="@+id/nav_container"
+                android:background="#ff007223"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:paddingBottom="2dp"
+                android:layout_below="@+id/adView">
 
-            <TextView
-                android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="#575757">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/distance_button"
+                        android:layout_weight="1"
+                        android:padding="@dimen/activity_half_margin"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:background="#ffffff"
+                        android:textColor="#ff007223"
+                        android:textSize="@dimen/nav_text"
+                        android:text="@string/distance"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/volume_button"
+                        android:layout_weight="1"
+                        android:padding="@dimen/activity_half_margin"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:background="#ffffff"
+                        android:textColor="#ff007223"
+                        android:textSize="@dimen/nav_text"
+                        android:text="@string/volume"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/weight_button"
+                        android:layout_weight="1"
+                        android:padding="@dimen/activity_half_margin"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:background="#ffffff"
+                        android:textColor="#ff007223"
+                        android:textSize="@dimen/nav_text"
+                        android:text="@string/weight"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/temp_button"
+                        android:layout_weight="1"
+                        android:padding="@dimen/activity_half_margin"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginRight="2dp"
+                        android:gravity="center"
+                        android:background="#ffffff"
+                        android:textColor="#ff007223"
+                        android:textSize="@dimen/nav_text"
+                        android:text="@string/temp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/weight_button"
-                android:layout_weight="1"
-                android:padding="@dimen/activity_half_margin"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:gravity="center"
-                android:background="#ffffff"
-                android:textColor="#ff007223"
-                android:textSize="@dimen/nav_text"
-                android:text="@string/weight"/>
+                android:id="@+id/content"
+                android:background="#99575757"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_vertical_margin"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:layout_below="@+id/nav_container"/>
 
-            <TextView
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/temp_button"
-                android:layout_weight="1"
-                android:padding="@dimen/activity_half_margin"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginEnd="2dp"
-                android:layout_marginRight="2dp"
-                android:gravity="center"
-                android:background="#ffffff"
-                android:textColor="#ff007223"
-                android:textSize="@dimen/nav_text"
-                android:text="@string/temp"/>
+                android:id="@+id/developer_buttons"
+                android:layout_below="@+id/content">
 
-        </LinearLayout>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/more"
+                    android:layout_weight="1"
+                    android:textColor="#007223"
+                    android:text="@string/more"
+                    android:layout_margin="@dimen/activity_half_margin"/>
 
-    </LinearLayout>
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/share"
+                    android:layout_weight="1"
+                    android:textColor="#007223"
+                    android:text="@string/share"
+                    android:layout_margin="@dimen/activity_half_margin"/>
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/content"
-        android:background="#99575757"
-        android:layout_marginLeft="@dimen/activity_vertical_margin"
-        android:layout_marginStart="@dimen/activity_vertical_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_marginRight="@dimen/activity_vertical_margin"
-        android:layout_marginEnd="@dimen/activity_vertical_margin"
-        android:layout_below="@+id/nav_container"/>
+            </LinearLayout>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/request"
+                android:layout_below="@+id/developer_buttons"
+                android:textColor="#007223"
+                android:text="@string/request"
+                android:layout_marginLeft="@dimen/activity_half_margin"
+                android:layout_marginStart="@dimen/activity_half_margin"
+                android:layout_marginRight="@dimen/activity_half_margin"
+                android:layout_marginEnd="@dimen/activity_half_margin"
+                android:layout_marginBottom="@dimen/activity_half_margin"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
