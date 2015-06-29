@@ -4,5 +4,5 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity_half_margin">24dp</dimen>
     <dimen name="conversion_text">30sp</dimen>
-    <dimen name="nav_text">18sp</dimen>
+    <dimen name="nav_text">16sp</dimen>
 </resources>
