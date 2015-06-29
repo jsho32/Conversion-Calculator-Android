@@ -96,15 +96,6 @@
             android:layout_centerHorizontal="true"
             android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/from_unit"
-                android:layout_centerVertical="true"
-                android:text="Km"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/conversion_text"/>
-
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -115,9 +106,18 @@
                 android:textColor="#000000"
                 android:textSize="@dimen/conversion_text"
                 android:inputType="numberDecimal"
-                android:gravity="end|center_vertical"
-                android:layout_toLeftOf="@+id/from_unit"
-                android:layout_toStartOf="@+id/from_unit"/>
+                android:gravity="end|center_vertical"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/from_unit"
+                android:layout_centerVertical="true"
+                android:text="Km"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/conversion_text"
+                android:layout_toRightOf="@+id/value"
+                android:layout_toEndOf="@+id/value"/>
 
         </RelativeLayout>
 
