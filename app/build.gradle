@@ -8,8 +8,8 @@ android {
         applicationId "com.jshoresdevelopment.conversioncalculator"
         minSdkVersion 14
         targetSdkVersion 22
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 4
+        versionName "1.0.3"
     }
     buildTypes {
         release {
@@ -24,4 +24,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     provided 'org.projectlombok:lombok:1.14.4'
     compile 'com.google.android.gms:play-services:7.5.0'
+    compile files('libs/Flurry Android SDK vAndroid SDK 5.5.0/Android 5.5.0/Flurry Ads/FlurryAds-5.5.0.jar')
 }
