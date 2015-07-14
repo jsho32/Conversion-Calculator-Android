@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/single_conversion"
         android:layout_below="@+id/conversion_head"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -88,19 +88,59 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttons_container"
+            android:layout_below="@+id/spinners_container"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/reset"
+                android:layout_weight="1"
+                android:textColor="#007223"
+                android:text="@string/reset"
+                android:layout_marginLeft="@dimen/activity_half_margin"
+                android:layout_marginStart="@dimen/activity_half_margin"
+                android:layout_marginRight="@dimen/activity_half_margin"
+                android:layout_marginEnd="@dimen/activity_half_margin"
+                android:layout_marginTop="@dimen/activity_half_margin"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/calculate"
+                android:layout_weight="1"
+                android:textColor="#007223"
+                android:text="@string/convert"
+                android:layout_marginLeft="@dimen/activity_half_margin"
+                android:layout_marginStart="@dimen/activity_half_margin"
+                android:layout_marginRight="@dimen/activity_half_margin"
+                android:layout_marginEnd="@dimen/activity_half_margin"
+                android:layout_marginTop="@dimen/activity_half_margin"/>
+
+        </LinearLayout>
+
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/values_container"
-            android:layout_below="@+id/spinners_container"
-            android:gravity="center">
+            android:layout_below="@+id/buttons_container"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:gravity="center"
+            android:background="#ffffff"
+            android:padding="1dp">
 
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/entry_container"
                 android:layout_centerHorizontal="true"
-                android:gravity="center">
+                android:gravity="center"
+                android:background="#007223">
 
                 <EditText
                     android:layout_width="wrap_content"
@@ -142,7 +182,7 @@
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/activity_half_margin"
                     android:text="12.001"
-                    android:textColor="#ffffff"
+                    android:textColor="#007223"
                     android:textSize="@dimen/conversion_text"/>
 
                 <TextView
@@ -153,7 +193,7 @@
                     android:layout_toRightOf="@+id/converted_value"
                     android:layout_toEndOf="@+id/converted_value"
                     android:text="Km"
-                    android:textColor="#ffffff"
+                    android:textColor="#007223"
                     android:textSize="@dimen/conversion_text"/>
 
             </RelativeLayout>
@@ -167,52 +207,16 @@
                 android:layout_toLeftOf="@+id/calculation_container"
                 android:layout_margin="@dimen/activity_half_margin"
                 android:text="@string/equals"
-                android:textColor="#ffffff"
+                android:textColor="#007223"
                 android:textSize="@dimen/conversion_text"/>
 
         </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttons_container"
-            android:layout_below="@+id/values_container"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/reset"
-                android:layout_weight="1"
-                android:textColor="#007223"
-                android:text="@string/reset"
-                android:layout_marginLeft="@dimen/activity_half_margin"
-                android:layout_marginStart="@dimen/activity_half_margin"
-                android:layout_marginRight="@dimen/activity_half_margin"
-                android:layout_marginEnd="@dimen/activity_half_margin"
-                android:layout_marginBottom="@dimen/activity_half_margin"/>
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/calculate"
-                android:layout_weight="1"
-                android:textColor="#007223"
-                android:text="@string/convert"
-                android:layout_marginLeft="@dimen/activity_half_margin"
-                android:layout_marginStart="@dimen/activity_half_margin"
-                android:layout_marginRight="@dimen/activity_half_margin"
-                android:layout_marginEnd="@dimen/activity_half_margin"
-                android:layout_marginBottom="@dimen/activity_half_margin"/>
-
-        </LinearLayout>
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/all_button"
-            android:layout_below="@+id/buttons_container"
+            android:layout_below="@+id/values_container"
             android:text="@string/all_conversions"
             android:textColor="#007223"
             android:layout_marginLeft="@dimen/activity_half_margin"
@@ -228,7 +232,7 @@
         android:layout_height="fill_parent"
         android:id="@+id/all_conversions"
         android:layout_below="@+id/conversion_head"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/convert_from_all_text"
