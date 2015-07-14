@@ -116,6 +116,7 @@ public class ConversionFragment extends Fragment {
         layout.findViewById(R.id.all_conversions).setVisibility(View.VISIBLE);
         isSingleConvert = false;
 
+        conversionHead = (TextView) layout.findViewById(R.id.conversion_head);
         convertAllFrom = (Spinner) layout.findViewById(R.id.convert_from_all_spinner);
         convertAllFrom.setOnItemSelectedListener(getSpinnerOnItemSelectedListener());
 
@@ -304,7 +305,9 @@ public class ConversionFragment extends Fragment {
         return new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                setUnitsText();
+                if (isSingleConvert()) {
+                    setUnitsText();
+                }
 
                 if (parent == convertFrom || parent == convertTo) {
                     if (!fromValue.getText().toString().equals("")) {
