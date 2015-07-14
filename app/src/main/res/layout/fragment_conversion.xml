@@ -18,188 +18,334 @@
         android:textColor="#ffffff"
         android:text="@string/distance"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/info_container"
+        android:id="@+id/single_conversion"
         android:layout_below="@+id/conversion_head"
-        android:orientation="horizontal">
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_container"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/convert_from_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/activity_half_margin"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="@string/convert_from"/>
+
+            <TextView
+                android:id="@+id/convert_to_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/activity_half_margin"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:text="@string/convert_to"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinners_container"
+            android:layout_below="@+id/info_container"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/convert_from_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/activity_half_margin"
+                android:layout_marginStart="@dimen/activity_half_margin"
+                android:layout_marginRight="@dimen/activity_half_margin"
+                android:layout_marginEnd="@dimen/activity_half_margin"
+                android:theme="@style/Theme.ColoredSpinners"
+                android:entries="@array/distance_array"
+                android:prompt="@string/convert_from"/>
+
+            <Spinner
+                android:id="@+id/convert_to_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/activity_half_margin"
+                android:layout_marginStart="@dimen/activity_half_margin"
+                android:layout_marginRight="@dimen/activity_half_margin"
+                android:layout_marginEnd="@dimen/activity_half_margin"
+                android:theme="@style/Theme.ColoredSpinners"
+                android:entries="@array/distance_array"
+                android:prompt="@string/convert_to"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/values_container"
+            android:layout_below="@+id/spinners_container"
+            android:gravity="center">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/entry_container"
+                android:layout_centerHorizontal="true"
+                android:gravity="center">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/value"
+                    android:hint="@string/convert_hint"
+                    android:layout_margin="@dimen/activity_half_margin"
+                    android:background="#ffffff"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/conversion_text"
+                    android:inputType="numberDecimal"
+                    android:gravity="end|center_vertical"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/from_unit"
+                    android:layout_centerVertical="true"
+                    android:text="Km"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/conversion_text"
+                    android:layout_toRightOf="@+id/value"
+                    android:layout_toEndOf="@+id/value"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/calculation_container"
+                android:layout_below="@+id/entry_container"
+                android:layout_centerHorizontal="true"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/converted_value"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/activity_half_margin"
+                    android:text="12.001"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/conversion_text"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/to_unit"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/converted_value"
+                    android:layout_toEndOf="@+id/converted_value"
+                    android:text="Km"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/conversion_text"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/equals"
+                android:layout_below="@+id/entry_container"
+                android:layout_toStartOf="@+id/calculation_container"
+                android:layout_toLeftOf="@+id/calculation_container"
+                android:layout_margin="@dimen/activity_half_margin"
+                android:text="@string/equals"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/conversion_text"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttons_container"
+            android:layout_below="@+id/values_container"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/reset"
+                android:layout_weight="1"
+                android:textColor="#007223"
+                android:text="@string/reset"
+                android:layout_marginLeft="@dimen/activity_half_margin"
+                android:layout_marginStart="@dimen/activity_half_margin"
+                android:layout_marginRight="@dimen/activity_half_margin"
+                android:layout_marginEnd="@dimen/activity_half_margin"
+                android:layout_marginBottom="@dimen/activity_half_margin"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/calculate"
+                android:layout_weight="1"
+                android:textColor="#007223"
+                android:text="@string/convert"
+                android:layout_marginLeft="@dimen/activity_half_margin"
+                android:layout_marginStart="@dimen/activity_half_margin"
+                android:layout_marginRight="@dimen/activity_half_margin"
+                android:layout_marginEnd="@dimen/activity_half_margin"
+                android:layout_marginBottom="@dimen/activity_half_margin"/>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/all_button"
+            android:layout_below="@+id/buttons_container"
+            android:text="@string/all_conversions"
+            android:textColor="#007223"
+            android:layout_marginLeft="@dimen/activity_half_margin"
+            android:layout_marginStart="@dimen/activity_half_margin"
+            android:layout_marginRight="@dimen/activity_half_margin"
+            android:layout_marginEnd="@dimen/activity_half_margin"
+            android:layout_marginBottom="@dimen/activity_half_margin"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/all_conversions"
+        android:layout_below="@+id/conversion_head"
+        android:visibility="visible">
 
         <TextView
-            android:id="@+id/convert_from_text"
-            android:layout_width="0dp"
+            android:id="@+id/convert_from_all_text"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/activity_half_margin"
             android:gravity="center"
             android:textColor="#ffffff"
             android:text="@string/convert_from"/>
 
-        <TextView
-            android:id="@+id/convert_to_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/activity_half_margin"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:text="@string/convert_to"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinners_container"
-        android:layout_below="@+id/info_container"
-        android:orientation="horizontal">
-
-        <Spinner
-            android:id="@+id/convert_from_spinner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="@dimen/activity_half_margin"
-            android:layout_marginStart="@dimen/activity_half_margin"
-            android:layout_marginRight="@dimen/activity_half_margin"
-            android:layout_marginEnd="@dimen/activity_half_margin"
-            android:theme="@style/Theme.ColoredSpinners"
-            android:entries="@array/distance_array"
-            android:prompt="@string/convert_from"/>
-
-        <Spinner
-            android:id="@+id/convert_to_spinner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="@dimen/activity_half_margin"
-            android:layout_marginStart="@dimen/activity_half_margin"
-            android:layout_marginRight="@dimen/activity_half_margin"
-            android:layout_marginEnd="@dimen/activity_half_margin"
-            android:theme="@style/Theme.ColoredSpinners"
-            android:entries="@array/distance_array"
-            android:prompt="@string/convert_to"/>
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/values_container"
-        android:layout_below="@+id/spinners_container"
-        android:gravity="center">
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/entry_container"
-            android:layout_centerHorizontal="true"
+            android:id="@+id/from_all_value_container"
+            android:layout_below="@+id/convert_from_all_text"
             android:gravity="center">
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/value"
+                android:layout_weight="1"
+                android:id="@+id/from_all_value"
                 android:hint="@string/convert_hint"
-                android:layout_margin="@dimen/activity_half_margin"
+                android:layout_marginLeft="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginRight="@dimen/activity_half_margin"
+                android:layout_marginEnd="@dimen/activity_half_margin"
                 android:background="#ffffff"
                 android:textColor="#000000"
                 android:textSize="@dimen/conversion_text"
                 android:inputType="numberDecimal"
+                android:imeOptions="actionDone"
                 android:gravity="end|center_vertical"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <Spinner
+                android:id="@+id/convert_from_all_spinner"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/from_unit"
-                android:layout_centerVertical="true"
-                android:text="Km"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/conversion_text"
-                android:layout_toRightOf="@+id/value"
-                android:layout_toEndOf="@+id/value"/>
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/activity_half_margin"
+                android:layout_marginStart="@dimen/activity_half_margin"
+                android:layout_marginRight="@dimen/activity_half_margin"
+                android:layout_marginEnd="@dimen/activity_half_margin"
+                android:theme="@style/Theme.ColoredSpinners"
+                android:entries="@array/distance_array"
+                android:prompt="@string/convert_from"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/calculation_container"
-            android:layout_below="@+id/entry_container"
-            android:layout_centerHorizontal="true"
+            android:id="@+id/from_all_convert_container"
+            android:layout_below="@+id/from_all_value_container"
             android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <Button
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/converted_value"
-                android:layout_centerVertical="true"
-                android:layout_margin="@dimen/activity_half_margin"
-                android:text="12.001"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/conversion_text"/>
+                android:id="@+id/reset_all"
+                android:layout_weight="1"
+                android:textColor="#007223"
+                android:text="@string/reset"
+                android:layout_margin="@dimen/activity_half_margin"/>
 
-            <TextView
-                android:layout_width="wrap_content"
+            <Button
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/to_unit"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/converted_value"
-                android:layout_toEndOf="@+id/converted_value"
-                android:text="Km"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/conversion_text"/>
+                android:id="@+id/convert_all"
+                android:layout_weight="1"
+                android:textColor="#007223"
+                android:text="@string/convert"
+                android:layout_margin="@dimen/activity_half_margin"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/equals"
-            android:layout_below="@+id/entry_container"
-            android:layout_toStartOf="@+id/calculation_container"
-            android:layout_toLeftOf="@+id/calculation_container"
-            android:layout_margin="@dimen/activity_half_margin"
-            android:text="@string/equals"
+            android:id="@+id/table_head"
+            android:layout_below="@+id/from_all_convert_container"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
+            android:padding="@dimen/activity_half_margin"
+            android:gravity="center"
+            android:background="#007223"
             android:textColor="#ffffff"
-            android:textSize="@dimen/conversion_text"/>
+            android:text="@string/table_head"/>
+
+        <com.jshoresdevelopment.conversioncalculator.NonScrollListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/list_view"
+            android:orientation="vertical"
+            android:isScrollContainer="false"
+            android:layout_below="@+id/table_head"
+            android:padding="1dp"
+            android:background="#007223"
+            android:layout_marginLeft="@dimen/activity_vertical_margin"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_vertical_margin">
+        </com.jshoresdevelopment.conversioncalculator.NonScrollListView>
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/back_to_single"
+            android:textColor="#007223"
+            android:text="@string/single_conversions"
+            android:layout_below="@+id/list_view"
+            android:layout_margin="@dimen/activity_half_margin"/>
 
     </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttons_container"
-        android:layout_below="@+id/values_container"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/reset"
-            android:layout_weight="1"
-            android:textColor="#007223"
-            android:text="@string/reset"
-            android:layout_marginLeft="@dimen/activity_half_margin"
-            android:layout_marginStart="@dimen/activity_half_margin"
-            android:layout_marginRight="@dimen/activity_half_margin"
-            android:layout_marginEnd="@dimen/activity_half_margin"
-            android:layout_marginBottom="@dimen/activity_half_margin"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/calculate"
-            android:layout_weight="1"
-            android:textColor="#007223"
-            android:text="@string/convert"
-            android:layout_marginLeft="@dimen/activity_half_margin"
-            android:layout_marginStart="@dimen/activity_half_margin"
-            android:layout_marginRight="@dimen/activity_half_margin"
-            android:layout_marginEnd="@dimen/activity_half_margin"
-            android:layout_marginBottom="@dimen/activity_half_margin"/>
-
-    </LinearLayout>
 
 </RelativeLayout>
