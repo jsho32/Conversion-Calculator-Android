@@ -37,7 +37,6 @@ public class MainActivity extends FragmentActivity {
                 .commitAllowingStateLoss();
         currentFragment = mainFragment;
 
-        // TODO change adUnitId in layout resource when app is uplaoded to play
         AdView adView = (AdView) this.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
@@ -47,12 +46,11 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (conversionFragment.getConversionType() == null) {
-            MainFragment mainFragment = new MainFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.content, mainFragment)
-                    .commitAllowingStateLoss();
-            currentFragment = mainFragment;
-        }
+        MainFragment mainFragment = new MainFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content, mainFragment)
+                .commitAllowingStateLoss();
+        currentFragment = mainFragment;
+        resetNavButtons();
     }
 
     /** Initializes all buttons. */
@@ -150,8 +148,15 @@ public class MainActivity extends FragmentActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.content, conversionFragment).commitAllowingStateLoss();
                     currentFragment = conversionFragment;
                 } else {
-                    if (conversionFragment.getConversionHead() != null) {
-                        conversionFragment.setLayoutResources();
+
+                    if (conversionFragment.isSingleConvert()) {
+                        if (conversionFragment.getConversionHead() != null) {
+                            conversionFragment.setLayoutResourcesSingle();
+                        }
+                    } else {
+                        if (conversionFragment.getConversionHead() != null) {
+                            conversionFragment.setLayoutResourcesAll();
+                        }
                     }
                 }
             }
