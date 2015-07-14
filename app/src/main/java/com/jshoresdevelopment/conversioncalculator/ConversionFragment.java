@@ -42,24 +42,25 @@ public class ConversionFragment extends Fragment {
     private Map<String, String> unitAbbreviations;
     private boolean isSingleConvert;
 
-    /** When fragment is created */
+    /** When fragment is created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setUnitAbbreviations();
     }
 
-    /** When fragment view is created */
+    /** When fragment view is created. */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         layout = inflater.inflate(R.layout.fragment_conversion, container, false);
         mActivity = getActivity();
 
-        initializeConvertSingleView();
+        initializeConvertAllView();
 
         return layout;
     }
 
+    /** Initializes all variables involved with single unit conversions. */
     public void initializeConvertSingleView() {
         layout.findViewById(R.id.single_conversion).setVisibility(View.VISIBLE);
         layout.findViewById(R.id.all_conversions).setVisibility(View.GONE);
@@ -109,6 +110,7 @@ public class ConversionFragment extends Fragment {
         setLayoutResourcesSingle();
     }
 
+    /** Initializes all variables associated with converting to all units. */
     public void initializeConvertAllView() {
         layout.findViewById(R.id.single_conversion).setVisibility(View.GONE);
         layout.findViewById(R.id.all_conversions).setVisibility(View.VISIBLE);
@@ -148,6 +150,7 @@ public class ConversionFragment extends Fragment {
         populateAllConversions();
     }
 
+    /** Populates the list of converted units. */
     public void populateAllConversions() {
         NonScrollListView listView = (NonScrollListView) layout.findViewById(R.id.list_view);
 
@@ -158,7 +161,7 @@ public class ConversionFragment extends Fragment {
         listView.setAdapter(getListAdapter(listContents));
     }
 
-    /** Creates the list of store list items */
+    /** Creates the list of converted list items. */
     private List<AllUnitListItem> getListItems() {
         List<AllUnitListItem> listItems = new ArrayList<>();
 
@@ -200,7 +203,7 @@ public class ConversionFragment extends Fragment {
 
     }
 
-    /** Calls correct conversion type calculation */
+    /** Calls correct conversion type calculation. */
     private void getConversions() {
         switch(conversionType) {
             case "Distance":
@@ -222,7 +225,7 @@ public class ConversionFragment extends Fragment {
         }
     }
 
-    /** Calls correct conversion type calculation */
+    /** Calls correct conversion type calculation. */
     private String getConversions(String fromUnit, String fromValue, String toUnit) {
         switch(conversionType) {
             case "Distance":
@@ -238,7 +241,7 @@ public class ConversionFragment extends Fragment {
         return null;
     }
 
-    /** Sets layout items resource strings etc. */
+    /** Sets layout items, resource strings, etc. for single conversion view. */
     public void setLayoutResourcesSingle() {
         switch(conversionType) {
             case "Distance":
@@ -264,7 +267,7 @@ public class ConversionFragment extends Fragment {
         }
     }
 
-    /** Sets layout items resource strings etc. */
+    /** Sets layout items, resource strings, etc. for convert to all views. */
     public void setLayoutResourcesAll() {
         switch(conversionType) {
             case "Distance":
@@ -287,7 +290,7 @@ public class ConversionFragment extends Fragment {
         populateAllConversions();
     }
 
-    /** Returns array adapter used for spinners */
+    /** Returns array adapter used for spinners. */
     private ArrayAdapter<String> getArrayAdapter(String[] array) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(mActivity,
                 android.R.layout.simple_spinner_item, array);
@@ -296,7 +299,7 @@ public class ConversionFragment extends Fragment {
         return adapter;
     }
 
-    /** Returns on item selected listener for spinner items */
+    /** Returns on item selected listener for spinner items. */
     private AdapterView.OnItemSelectedListener getSpinnerOnItemSelectedListener() {
         return new AdapterView.OnItemSelectedListener() {
             @Override
@@ -324,13 +327,13 @@ public class ConversionFragment extends Fragment {
         };
     }
 
-    /** Sets the unit texts to unit abbreviations */
+    /** Sets the unit texts to unit abbreviations. */
     private void setUnitsText() {
         fromUnit.setText(unitAbbreviations.get(convertFrom.getSelectedItem().toString()));
         toUnit.setText(unitAbbreviations.get(convertTo.getSelectedItem().toString()));
     }
 
-    /** Loads all the unit abbreviations into a map */
+    /** Loads all the unit abbreviations into a map. */
     private void setUnitAbbreviations() {
         unitAbbreviations = new HashMap<>();
         unitAbbreviations.put("Kilometers", "km");
@@ -358,7 +361,7 @@ public class ConversionFragment extends Fragment {
         unitAbbreviations.put("Kelvin", "\u00b0K");
     }
 
-    /** Returns adapter for store list view */
+    /** Returns adapter for store list view. */
     private ArrayAdapter<AllUnitListItem> getListAdapter(final AllUnitListItem item[]) {
 
         return new ArrayAdapter<AllUnitListItem>(mActivity, R.layout.all_unit_convert, item) {
