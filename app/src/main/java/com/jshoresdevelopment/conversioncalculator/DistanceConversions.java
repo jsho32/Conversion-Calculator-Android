@@ -7,7 +7,7 @@ public class DistanceConversions {
 
     /** Returns converted values, by calling appropriate conversions */
     public static String convert(String fromUnit, String fromValue, String toUnit) {
-        decimalFormat = new DecimalFormat("#.00##");
+        decimalFormat = new DecimalFormat("0.00###");
         switch (fromUnit) {
             case "Kilometers":
                 return fromKilometers(fromValue, toUnit);
